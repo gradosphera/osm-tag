@@ -1,0 +1,292 @@
+.edit-page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.edit-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.edit-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.edit-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: #666;
+}
+
+.edit-info .osm-link {
+  color: #2196F3;
+  text-decoration: none;
+}
+
+.edit-info .osm-link:hover {
+  text-decoration: underline;
+}
+
+.edit-info .edit-object-type {
+  text-transform: capitalize;
+  font-weight: 500;
+  color: #333;
+}
+
+.edit-info .edit-timestamp {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.edit-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0;
+  overflow: hidden;
+}
+
+.map-cell {
+  position: relative;
+  border: 1px solid #ddd;
+}
+
+.map-top-left {
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+.map-top-right {
+  border-bottom: 1px solid #ddd;
+}
+
+.map-bottom-left {
+  border-right: 1px solid #ddd;
+}
+
+.form-cell {
+  padding: 1.5rem;
+  background: #fafafa;
+  overflow-y: auto;
+}
+
+.sport-form h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.sport-checkboxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.sport-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.sport-checkbox:hover {
+  background: #f0f0f0;
+}
+
+.sport-checkbox input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.custom-sport-input {
+  margin-bottom: 1.5rem;
+}
+
+.custom-sport-input label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.custom-sport-input input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.confirm-button,
+.skip-button,
+.finish-button {
+  flex: 1;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.confirm-button {
+  background: #4CAF50;
+  color: white;
+}
+
+.confirm-button:hover:not(:disabled) {
+  background: #45a049;
+}
+
+.finish-button {
+  background: #2196F3;
+  color: white;
+}
+
+.finish-button:hover:not(:disabled) {
+  background: #0b7dda;
+}
+
+.skip-button {
+  background: #ff9800;
+  color: white;
+}
+
+.skip-button:hover:not(:disabled) {
+  background: #f57c00;
+}
+
+.confirm-button:disabled,
+.skip-button:disabled,
+.finish-button:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.no-objects {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 18px;
+  color: #666;
+}
+
+.scroll-to-form-btn {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .edit-page {
+    min-height: 100vh;
+    height: auto;
+  }
+
+  .edit-header {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .edit-header h2 {
+    font-size: 1.1rem;
+    width: 100%;
+  }
+
+  .edit-info {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .edit-info .edit-timestamp {
+    display: block;
+    width: 100%;
+  }
+
+  .edit-grid {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+
+  .map-cell {
+    display: block;
+    height: 26vh;
+    height: 26dvh;
+    min-height: 160px;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .map-cell .leaflet-container {
+    height: 100% !important;
+  }
+
+  .form-cell {
+    flex: 1 1 auto;
+    padding: 1rem;
+    min-height: 0;
+  }
+
+  .sport-checkboxes {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .confirm-button,
+  .skip-button,
+  .finish-button {
+    width: 100%;
+  }
+
+  .scroll-to-form-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: calc(1rem + env(safe-area-inset-bottom, 0));
+    right: 1rem;
+    z-index: 1000;
+    height: 48px;
+    padding: 0 1.25rem;
+    border: none;
+    border-radius: 24px;
+    background: #2196F3;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .scroll-to-form-btn:hover {
+    background: #1976D2;
+  }
+
+  .scroll-to-form-btn:active {
+    transform: scale(0.96);
+  }
+}
